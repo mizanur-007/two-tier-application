@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import env from "react-dotenv";
 import axios from 'axios';
 
 
@@ -14,7 +15,7 @@ class Summation extends Component {
     }
 
     handleSubmit=()=>{
-        axios.post(`/summation`, this.state)
+        axios.post(`${env.BACKEND_API_URL}/summation`, this.state)
         .then(res => {
           this.setState({sumNum:res.data.sum})
         })

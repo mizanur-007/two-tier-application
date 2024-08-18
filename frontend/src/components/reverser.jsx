@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import env from "react-dotenv";
 import axios from 'axios';
 
 
@@ -14,7 +15,7 @@ class Reverser extends Component {
     }
 
     handleSubmit=()=>{
-        axios.post(`/reverser`, this.state)
+        axios.post(`${env.BACKEND_API_URL}/reverser`, this.state)
         .then(res => {
           this.setState({reverseNum:res.data.num})
         })
